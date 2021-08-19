@@ -14,7 +14,7 @@ import { addDays, format, isSameDay } from 'date-fns';
 import { IconButton } from '@material-ui/core';
 import WeatherPanel, { weatherPanelMode } from './WeatherPanel';
 import { dialogMode } from './ReminderDialog';
-import apiKey from '../config/openWeatherApi';
+// import apiKey from '../config/openWeatherApi';
 
 const ReminderPreview = ({
   data,
@@ -39,7 +39,7 @@ const ReminderPreview = ({
 
     // gets city geolocation info
     fetch(
-      `http://api.openweathermap.org/geo/1.0/direct?q=${data.city}&limit=1&appid=${apiKey}`
+      `http://api.openweathermap.org/geo/1.0/direct?q=${data.city}&limit=1&appid=${process.env.REACT_APP_API_KEY}`
     )
       .then((response) => response.json())
       .then((json) => {
@@ -52,7 +52,7 @@ const ReminderPreview = ({
 
         // gets weather forecast for the location for the next 7 days
         fetch(
-          `https://api.openweathermap.org/data/2.5/onecall?lat=${cityData.lat}&lon=${cityData.lon}&exclude=current,minutely,hourly,alerts&units=metric&appid=${apiKey}`
+          `https://api.openweathermap.org/data/2.5/onecall?lat=${cityData.lat}&lon=${cityData.lon}&exclude=current,minutely,hourly,alerts&units=metric&appid=${process.env.REACT_APP_API_KEY}`
         )
           .then((response) => response.json())
           .then((json) => {
