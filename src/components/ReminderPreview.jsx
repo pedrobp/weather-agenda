@@ -24,7 +24,7 @@ const ReminderPreview = ({ data, handleClose, handleChangeMode, handleChangeData
     setLoading(true)
 
     // gets city geolocation info
-    fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${data.city}&limit=1&appid=${apiKey}`)
+    fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${data.city}&limit=1&appid=${apiKey}`)
       .then((response) => response.json())
       .then((json) => {
         const cityData = json.shift ? json?.shift() : null
