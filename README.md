@@ -13,6 +13,8 @@ The application consists on a calendar enhanced with the following features:
 
 The state management was handled with `Redux Toolkit`, which helped with the creation of practical state and reducer slices. The library chosen for date and time handling was `date-fns`. The UI was developed with the help of the `Material UI` library, along with the use of `CSS` for styling and organization of the components. The api key used for the openWeather requests is stored inside the `src/config` folder. A group of unit tests were created to ensure the components are working properly, located in `src/components/tests`.
 
+To access the deployed application, click [here](https://weather-agenda.netlify.app/).
+
 ## How to run
 
 - Run `npm install` | `yarn install` to install all dependencies
