@@ -1,9 +1,9 @@
-import React from 'react';
-import { makeStyles, ButtonBase, Tooltip } from '@material-ui/core';
-import { format } from 'date-fns';
+import React from 'react'
+import { makeStyles, ButtonBase, Tooltip } from '@material-ui/core'
+import { format } from 'date-fns'
 
 const ReminderChip = ({ data, handleOpenReminder }) => {
-  const classes = useStyles();
+  const classes = useStyles()
 
   return (
     <Tooltip arrow enterDelay={500} title={data.description}>
@@ -12,8 +12,8 @@ const ReminderChip = ({ data, handleOpenReminder }) => {
         <div className={classes.content}>{data.description}</div>
       </ButtonBase>
     </Tooltip>
-  );
-};
+  )
+}
 
 const useStyles = makeStyles({
   root: {
@@ -39,6 +39,6 @@ const useStyles = makeStyles({
     overflow: 'hidden',
     flex: 1
   }
-});
+})
 
-export default ReminderChip;
+export default ReminderChip

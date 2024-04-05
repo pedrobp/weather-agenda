@@ -1,29 +1,23 @@
-import React, { useState } from 'react';
-import {
-  makeStyles,
-  Button,
-  DialogContent,
-  DialogActions,
-  TextField
-} from '@material-ui/core';
-import { addReminder, editReminder } from '../reducers/remindersSlice';
-import { show as showSnackbar, changeMessage } from '../reducers/snackbarSlice';
-import { useDispatch } from 'react-redux';
-import { v4 as uuidv4 } from 'uuid';
-import Alert from '@material-ui/lab/Alert';
+import React, { useState } from 'react'
+import { makeStyles, Button, DialogContent, DialogActions, TextField } from '@material-ui/core'
+import { addReminder, editReminder } from '../reducers/remindersSlice'
+import { show as showSnackbar, changeMessage } from '../reducers/snackbarSlice'
+import { useDispatch } from 'react-redux'
+import { v4 as uuidv4 } from 'uuid'
+import Alert from '@material-ui/lab/Alert'
 
 const ReminderConfiguration = ({ data, handleChangeData, handleClose }) => {
-  const dispatch = useDispatch();
-  const classes = useStyles();
+  const dispatch = useDispatch()
+  const classes = useStyles()
 
-  const [alert, setAlert] = useState(false);
+  const [alert, setAlert] = useState(false)
 
   const handleSaveReminder = () => {
     if (data.description === '' || data.city === '' || data.date === '') {
-      return setAlert(true);
+      return setAlert(true)
     }
 
-    let message = '';
+    let message = ''
 
     if (data.id !== '') {
       dispatch(
@@ -33,9 +27,9 @@ const ReminderConfiguration = ({ data, handleChangeData, handleClose }) => {
           description: data.description,
           city: data.city
         })
-      );
+      )
 
-      message = 'Reminder was successfully edited!';
+      message = 'Reminder was successfully edited!'
     } else {
       dispatch(
         addReminder({
@@ -44,14 +38,14 @@ const ReminderConfiguration = ({ data, handleChangeData, handleClose }) => {
           description: data.description,
           city: data.city
         })
-      );
+      )
 
-      message = 'Reminder was successfully created!';
+      message = 'Reminder was successfully created!'
     }
-    dispatch(changeMessage(message));
-    dispatch(showSnackbar());
-    handleClose();
-  };
+    dispatch(changeMessage(message))
+    dispatch(showSnackbar())
+    handleClose()
+  }
 
   return (
     <div>
@@ -62,9 +56,7 @@ const ReminderConfiguration = ({ data, handleChangeData, handleClose }) => {
           variant="outlined"
           inputProps={{ maxLength: 30, 'data-testid': 'description-input' }}
           value={data.description}
-          onChange={(e) =>
-            handleChangeData({ ...data, description: e.target.value })
-          }
+          onChange={(e) => handleChangeData({ ...data, description: e.target.value })}
         />
 
         <TextField
@@ -95,19 +87,13 @@ const ReminderConfiguration = ({ data, handleChangeData, handleClose }) => {
             Please complete all the blank fields!
           </Alert>
         )}
-        <Button
-          data-testid="add-reminder"
-          onClick={handleSaveReminder}
-          color="primary"
-          variant="contained"
-          className={classes.saveButton}
-        >
+        <Button data-testid="add-reminder" onClick={handleSaveReminder} color="primary" variant="contained" className={classes.saveButton}>
           Save
         </Button>
       </DialogActions>
     </div>
-  );
-};
+  )
+}
 
 const useStyles = makeStyles({
   content: {
@@ -125,6 +111,6 @@ const useStyles = makeStyles({
   saveButton: {
     fontWeight: 'bold'
   }
-});
+})
 
-export default ReminderConfiguration;
+export default ReminderConfiguration

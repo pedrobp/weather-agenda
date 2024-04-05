@@ -1,31 +1,22 @@
-import React from 'react';
-import { makeStyles, Typography } from '@material-ui/core';
+import React from 'react'
+import { makeStyles, Typography } from '@material-ui/core'
 
 export const weatherPanelMode = {
   NOT_AVAILABLE: 0,
   CITY_NOT_FOUND: 1,
   AVAILABLE: 2
-};
+}
 
 const WeatherPanel = ({ mode, forecast }) => {
-  const classes = useStyles();
+  const classes = useStyles()
 
-  const notAvailable = () => (
-    <div>
-      The weather forecast is only available within a 7-day range starting from
-      the current day!
-    </div>
-  );
+  const notAvailable = () => <div>The weather forecast is only available within a 5-day range starting from the current day!</div>
 
-  const cityNotFound = () => (
-    <div>
-      The specified city was not found, therefore no forecast could be fetched.
-    </div>
-  );
+  const cityNotFound = () => <div>The specified city was not found, therefore no forecast could be fetched.</div>
 
   const forecastAvailable = () => (
     <div className={classes.forecastContainer}>
-      <Typography variant="h5">{`${parseInt(forecast.temp.day)}°C`}</Typography>
+      <Typography variant="h5">{`${parseInt(forecast.main.temp)}°C`}</Typography>
 
       <img
         className={classes.image}
@@ -35,23 +26,23 @@ const WeatherPanel = ({ mode, forecast }) => {
         src={`http://openweathermap.org/img/wn/${forecast.weather[0].icon}@4x.png`}
       />
     </div>
-  );
+  )
 
   const getPanel = (panel) => {
     switch (panel) {
       case weatherPanelMode.NOT_AVAILABLE:
-        return notAvailable();
+        return notAvailable()
       case weatherPanelMode.CITY_NOT_FOUND:
-        return cityNotFound();
+        return cityNotFound()
       case weatherPanelMode.AVAILABLE:
-        return forecastAvailable();
+        return forecastAvailable()
       default:
-        return notAvailable();
+        return notAvailable()
     }
-  };
+  }
 
-  return <div className={classes.weatherPanel}>{getPanel(mode)}</div>;
-};
+  return <div className={classes.weatherPanel}>{getPanel(mode)}</div>
+}
 
 const useStyles = makeStyles({
   weatherPanel: {
@@ -66,6 +57,6 @@ const useStyles = makeStyles({
   image: {
     margin: 0
   }
-});
+})
 
-export default WeatherPanel;
+export default WeatherPanel

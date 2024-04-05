@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit'
 
 export const snackbarSlice = createSlice({
   name: 'snackbar',
@@ -8,19 +8,19 @@ export const snackbarSlice = createSlice({
   },
   reducers: {
     show: (state) => {
-      state.open = true;
+      state.open = true
     },
     hide: (state) => {
-      state.open = false;
+      state.open = false
     },
     changeMessage: (state, payload) => {
-      state.message = payload.payload;
+      state.message = payload.payload
     }
   }
-});
+})
 
-export const { show, hide, changeMessage } = snackbarSlice.actions;
+export const { show, hide, changeMessage } = snackbarSlice.actions
 
-export const selectSnackBar = (state) => state.snackbar;
+export const selectSnackBar = (state) => state.snackbar
 
-export default snackbarSlice.reducer;
+export default snackbarSlice.reducer

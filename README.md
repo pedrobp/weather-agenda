@@ -1,8 +1,6 @@
-# React Challenge
+# React Project - Weather Agenda
 
 ## Introduction
-
-This project was developed for Jobsity's React Coding Challenge.
 
 The application consists on a calendar enhanced with the following features:
 
@@ -19,5 +17,5 @@ The state management was handled with `Redux Toolkit`, which helped with the cre
 
 - Run `npm install` | `yarn install` to install all dependencies
 - Run `npm start` | `yarn run` to run the app locally
-- You can find the project running on `localhost:3000/calendar`
+- You can find the project running on `localhost:3000`
 - Enjoy!
