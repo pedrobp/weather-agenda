@@ -17,6 +17,8 @@ To access the deployed application, click [here](https://weather-agenda.netlify.
 
 ## How to run
 
+**You need to use Node 14!**
+
 - Run `npm install` | `yarn install` to install all dependencies
 - Run `npm start` | `yarn run` to run the app locally
 - You can find the project running on `localhost:3000`
